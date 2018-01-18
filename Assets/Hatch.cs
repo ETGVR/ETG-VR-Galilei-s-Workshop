@@ -3,16 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hatch : MonoBehaviour {
+    public TextTracker textTracker;
     private GameObject hatch;
     private HingeJoint hinge;
     private GameObject wheel;
-    private TextTracker textTracker;
     // Use this for initialization
     void Awake () {
         hinge = GetComponent<HingeJoint>();
-
-        wheel = GameObject.Find("RotationalCylinder");
-        textTracker = wheel.GetComponent<TextTracker>();
 
         JointSpring hingeSpring = hinge.spring;
         hingeSpring.spring = 10;
