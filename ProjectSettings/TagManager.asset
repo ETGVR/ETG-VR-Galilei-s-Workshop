@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - Lens
   - Wall
+  - Telescope
   layers:
   - Default
   - TransparentFX
