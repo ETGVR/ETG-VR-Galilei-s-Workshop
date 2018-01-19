@@ -8,6 +8,8 @@ TagManager:
   - Lens
   - Wall
   - Telescope
+  - MainController
+  - TelescopeCover
   layers:
   - Default
   - TransparentFX
