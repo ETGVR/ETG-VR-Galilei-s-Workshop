@@ -5,7 +5,8 @@ using UnityEngine;
 using VRTK;
 
 public class TelescopeSnapped : MonoBehaviour {
-    public TelescopeSprite telescope;
+    public TelescopeSprite telescopeSprite;
+    public TelescopeController telescopeCylinder;
     public GameObject experimentalSetup;
 
 	void Start () {
@@ -16,14 +17,16 @@ public class TelescopeSnapped : MonoBehaviour {
     private void Snapped(object sender, SnapDropZoneEventArgs e)
     {
         Debug.Log("Telescope snapped, show us the stars");
-        telescope.ShowTheStars();
+        telescopeSprite.ShowTheStars();
+        telescopeCylinder.isStargazing = true;
         //experimentalSetup.SetActive(false);
     }
 
     private void Unsnapped(object sender, SnapDropZoneEventArgs e)
     {
         Debug.Log("Telescope was usnapped, show us the void");
-        telescope.HideTheStars();
+        telescopeSprite.HideTheStars();
+        telescopeCylinder.isStargazing = false;
         //experimentalSetup.SetActive(true);
     }
 }
