@@ -6,10 +6,11 @@ using VRTK;
 
 public class OnSnapDrop : MonoBehaviour {
     public GameObject telescope;
-    public GameObject experimentalSetup;
+    private GameObject experimentalSetup;
 
 	void Start () {
         GetComponent<VRTK_SnapDropZone>().ObjectSnappedToDropZone += TelescopeGrabbed;
+        experimentalSetup = GameObject.FindGameObjectWithTag("ExperimentalSetup");
     }
 
     private void TelescopeGrabbed(object sender, SnapDropZoneEventArgs e)

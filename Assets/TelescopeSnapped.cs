@@ -27,6 +27,6 @@ public class TelescopeSnapped : MonoBehaviour {
         Debug.Log("Telescope was usnapped, show us the void");
         telescopeSprite.HideTheStars();
         telescopeCylinder.isStargazing = false;
-        //experimentalSetup.SetActive(true);
+        experimentalSetup.SetActive(true);
     }
 }
