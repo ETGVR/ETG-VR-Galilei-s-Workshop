@@ -14,7 +14,6 @@ public class TelescopeController : MonoBehaviour {
         originalRotation = transform.eulerAngles;
     }
 
-    // Update is called once per frame
     void Update () {
         if (isStargazing)
         {

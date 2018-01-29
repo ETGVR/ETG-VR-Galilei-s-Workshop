@@ -25,7 +25,7 @@ public class TelescopeSprite : MonoBehaviour
 
     public void ShowTheStars()
     {
-        if (telescope.isCorrectlyConstructed())
+        if (telescope.IsCorrectlyConstructed())
         {
             spriteMat = starMat;
         }

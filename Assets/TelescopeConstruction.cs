@@ -19,7 +19,7 @@ public class TelescopeConstruction : MonoBehaviour
         currentLensPositions[index] = type;
     }
 
-    public bool isCorrectlyConstructed()
+    public bool IsCorrectlyConstructed()
     {
         return currentLensPositions.SequenceEqual<LENSES>(correctLensPositions);
     }

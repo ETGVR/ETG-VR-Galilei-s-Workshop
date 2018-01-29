@@ -12,6 +12,7 @@ TagManager:
   - TelescopeCover
   - ExperimentalDropZone
   - ExperimentalSetup
+  - EmptyObject
   layers:
   - Default
   - TransparentFX
