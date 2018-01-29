@@ -12,6 +12,9 @@ public class WorkbenchManager : MonoBehaviour {
     private TelescopeConstruction scopeConstruction;
     private Vector3 SPAWN_POSITION = new Vector3(-100, -100, -100);
 
+    private GameObject telescopeCover;
+    private Transform telescopeCoverTransform;
+
     private void Start()
     {
         workbenchVisuals = GameObject.FindGameObjectWithTag("ExperimentalSetup");
@@ -20,7 +23,10 @@ public class WorkbenchManager : MonoBehaviour {
         telescope = GameObject.FindGameObjectWithTag("Telescope");
         scopeConstruction = GameObject.FindObjectOfType<TelescopeConstruction>();
         // initialize bench lenses array
-        for (int i = 0; i < lensesInBench.Length; i++) { lensesInBench[i] = emptyObject;} 
+        for (int i = 0; i < lensesInBench.Length; i++) { lensesInBench[i] = emptyObject;}
+
+        telescopeCover = GameObject.FindGameObjectWithTag("TelescopeCover");
+        telescopeCoverTransform = GameObject.FindGameObjectWithTag("TelescopeCoverPosition").transform;
     }
 
     public void ShowWorkbench()
@@ -31,6 +37,10 @@ public class WorkbenchManager : MonoBehaviour {
         grabber.enabled = false;
         telescope.GetComponent<Renderer>().enabled = false;
         telescope.transform.position = SPAWN_POSITION;
+
+        // reset the telescope cover position
+        telescopeCover.transform.position = telescopeCoverTransform.position;
+        telescopeCover.transform.rotation = telescopeCoverTransform.rotation;
     }
 
     public void RegisterLens(int index, LensType lens)
