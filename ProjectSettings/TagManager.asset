@@ -10,6 +10,10 @@ TagManager:
   - Telescope
   - MainController
   - TelescopeCover
+  - ExperimentalDropZone
+  - ExperimentalSetup
+  - EmptyObject
+  - TelescopeCoverPosition
   layers:
   - Default
   - TransparentFX

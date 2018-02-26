@@ -6,8 +6,9 @@ using UnityEngine;
 public class TelescopeSprite : MonoBehaviour
 {
     private Material spriteMat;
+    private TelescopeConstruction telescope;
     public Material starMat;
-    public Material blurryStarMat;
+    public Material blurryMat;
     public Material emptyMat;
     public TextTracker yawPosition;
     public TextTracker pitchPosition;
@@ -17,13 +18,21 @@ public class TelescopeSprite : MonoBehaviour
     void Start()
     {
         rend = GetComponent<Renderer>();
+        telescope = GameObject.FindObjectOfType<TelescopeConstruction>();
         spriteMat = emptyMat;
         rend.material = emptyMat;
     }
 
     public void ShowTheStars()
     {
-        spriteMat = starMat;
+        if (telescope.IsCorrectlyConstructed())
+        {
+            spriteMat = starMat;
+        }
+        else
+        {
+            spriteMat = blurryMat;
+        }
         rend.material = spriteMat;
     }
 
@@ -38,7 +47,6 @@ public class TelescopeSprite : MonoBehaviour
     {
         float newYawPos = yawPosition.angle / 1000f;
         float newPitchPos = pitchPosition.angle / 1000f;
-        Debug.Log("yawPosition.angle/100" + newYawPos);
         spriteMat.mainTextureOffset = new Vector2(newYawPos, newPitchPos);
     }
 }
