@@ -7,8 +7,13 @@ public class Hatch : MonoBehaviour {
     private GameObject hatch;
     private HingeJoint hinge;
     private GameObject wheel;
+
+    private SpotlightManager spotman;
+    private bool triggeredSpotlight;
+
     // Use this for initialization
     void Awake () {
+        spotman = GameObject.FindObjectOfType<SpotlightManager>();
         hinge = GetComponent<HingeJoint>();
 
         JointSpring hingeSpring = hinge.spring;
@@ -27,5 +32,10 @@ public class Hatch : MonoBehaviour {
         hingeSpring.targetPosition = lever.angle * 4;
         hinge.spring = hingeSpring;
         hinge.useSpring = true;
+
+        if (lever.angle > 50 && ! triggeredSpotlight) {
+            triggeredSpotlight = true;
+            spotman.Next();
+        }
     }
 }

@@ -15,8 +15,12 @@ public class WorkbenchManager : MonoBehaviour {
     private GameObject telescopeCover;
     private Transform telescopeCoverTransform;
 
+    private SpotlightManager spotman;
+    private bool triggeredSpotlight;
+
     private void Start()
     {
+        spotman = GameObject.FindObjectOfType<SpotlightManager>();
         workbenchVisuals = GameObject.FindGameObjectWithTag("ExperimentalSetup");
         emptyObject = GameObject.FindGameObjectWithTag("EmptyObject");
         grabber = GameObject.FindGameObjectWithTag("MainController").GetComponent<VRTK_ObjectAutoGrab>();
@@ -58,7 +62,12 @@ public class WorkbenchManager : MonoBehaviour {
     public void HideWorkbench()
     {
         SetVisibility(false);
-
+        // trigger the next spotlight
+        if (!triggeredSpotlight)
+        {
+            triggeredSpotlight = true;
+            spotman.Next();
+        }
         // activate the telescope
         telescope.GetComponent<Renderer>().enabled = true;
         // place it in the player's main hand
