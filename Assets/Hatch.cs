@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Hatch : MonoBehaviour {
-    public TextTracker textTracker;
+    public LeverTracker lever;
     private GameObject hatch;
     private HingeJoint hinge;
     private GameObject wheel;
@@ -24,7 +24,7 @@ public class Hatch : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         JointSpring hingeSpring = hinge.spring;
-        hingeSpring.targetPosition = textTracker.angle / 4;
+        hingeSpring.targetPosition = lever.angle * 4;
         hinge.spring = hingeSpring;
         hinge.useSpring = true;
     }
