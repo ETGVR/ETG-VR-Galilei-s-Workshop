@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpotlightManager : MonoBehaviour
 {
-    public Light[] spots;
+    private Light[] spots = new Light[3];
     private float maxSpotIntensity;
     private int currentSpot;
     private float speed = 1.37f;
@@ -12,6 +12,9 @@ public class SpotlightManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        spots[0] = GameObject.FindGameObjectWithTag("Spot1").GetComponent<Light>();
+        spots[1] = GameObject.FindGameObjectWithTag("Spot2").GetComponent<Light>();
+        spots[2] = GameObject.FindGameObjectWithTag("Spot3").GetComponent<Light>();
         maxSpotIntensity = spots[0].intensity;
         // reset spot intensity
         foreach (Light spot in spots)
